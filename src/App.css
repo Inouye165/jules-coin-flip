@@ -40,3 +40,32 @@
 .read-the-docs {
   color: #888;
 }
+
+.coin-container {
+  perspective: 1000px;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+.coin {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.coin.flipping {
+  animation: flip 0.6s ease-out;
+}
+
+@keyframes flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(1080deg);
+  }
+}

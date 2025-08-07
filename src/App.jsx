@@ -1,14 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import headsImg from './assets/heads.svg';
+import tailsImg from './assets/tails.svg';
 
 function App() {
-  const [side, setSide] = useState(null);
+  const [side, setSide] = useState('Heads');
+  const [isFlipping, setIsFlipping] = useState(false);
 
   const flipCoin = () => {
+    if (isFlipping) return;
+
+    setIsFlipping(true);
     const newSide = Math.random() < 0.5 ? 'Heads' : 'Tails';
-    setSide(newSide);
+
+    setTimeout(() => {
+      setSide(newSide);
+      setIsFlipping(false);
+    }, 600);
   };
 
   return (
@@ -23,10 +33,11 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={flipCoin}>
-          Flip Coin
-        </button>
-        {side && <p>{side}</p>}
+        <div className="coin-container" onClick={flipCoin}>
+          <div className={`coin ${isFlipping ? 'flipping' : ''}`}>
+            <img src={side === 'Heads' ? headsImg : tailsImg} alt={side} />
+          </div>
+        </div>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

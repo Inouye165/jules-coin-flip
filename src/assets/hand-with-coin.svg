@@ -1,0 +1,7 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Simple representation of a hand -->
+  <path d="M 50 150 Q 20 100 60 80 T 110 80 T 150 120 L 140 180 H 60 Z" fill="#f4a460"/>
+  <!-- Coin on the hand -->
+  <circle cx="85" cy="70" r="25" fill="#f0e040" stroke="black" stroke-width="2"/>
+  <text x="85" y="75" font-size="12" text-anchor="middle" dy=".3em">?</text>
+</svg>

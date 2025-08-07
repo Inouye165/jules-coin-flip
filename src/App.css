@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align to the top */
+  padding-top: 50px;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 0px #000;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.scoreboard {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  font-size: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.game-area {
+  min-height: 350px; /* Reserve space to prevent layout shifts */
 }
 
-.card {
-  padding: 2em;
+.choice-selection h2 {
+  margin-bottom: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.choice-btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.choice-btn:hover {
+  background-color: white;
+  color: #2b5876;
+}
+
+.coin-display.flipping img {
+  animation: flip-animation 2s ease-in-out;
+}
+
+@keyframes flip-animation {
+  0% { transform: translateY(0) rotateY(0); }
+  50% { transform: translateY(-100px) rotateY(1080deg); }
+  100% { transform: translateY(0) rotateY(2160deg); }
+}
+
+.result-display {
+  animation: fade-in 0.5s ease-in;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.result-message.win {
+  color: #4caf50; /* Green for win */
+  font-size: 1.8rem;
+}
+
+.result-message.loss {
+  color: #f44336; /* Red for loss */
+  font-size: 1.8rem;
+}
+
+.play-again-btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  padding: 15px 30px;
+  margin-top: 20px;
+  border: 2px solid white;
+  background-color: #ffc107;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.play-again-btn:hover {
+  transform: scale(1.05);
 }
